@@ -42,7 +42,7 @@ trait testTools
     }
 
     /**
-     * getall function for call getLinks with a client, ideal after login
+     * getLinksByClient function for call getLinks with a client, ideal after login
      *
      * @param  mixed $client
      * @param  string $url
@@ -50,13 +50,13 @@ trait testTools
      * @param  array $opts option for getLinks
      * @param  mixed $liens for recurivity
      */
-    function getall($client, string $url, int $level = 0, $opts = [], $liens = [])
+    function getLinksByClient($client, string $url, int $level = 0, $opts = [], $liens = [])
     {
         $client->request('GET', $url);
         $news = $this->getLinks($client->getCrawler()->html(), 0, $opts);
         if ($level > 0) {
             foreach ($news as $nurl => $ntexte) {
-                $nnews = $this->getall($client, $nurl, $level - 1, $opts);
+                $nnews = $this->getLinksByClient($client, $nurl, $level - 1, $opts);
                 $liens = array_merge($liens, $nnews);
                 array_unique($liens);
             }
