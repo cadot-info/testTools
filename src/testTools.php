@@ -56,7 +56,7 @@ trait testTools
         $news = $this->getLinks($client->getCrawler()->html(), 0, $opts);
         if ($level > 0) {
             foreach ($news as $nurl => $ntexte) {
-                $nnews = $this->getall($client, $nurl, $level - 1);
+                $nnews = $this->getall($client, $nurl, $level - 1, $opts);
                 $liens = array_merge($liens, $nnews);
                 array_unique($liens);
             }
