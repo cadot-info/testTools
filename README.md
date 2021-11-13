@@ -2,20 +2,22 @@
 
 ## Installation
 
-`require cadot-info/testTools`
+`composer require cadot.info/testtools`
+
+and use by traits
 
 ```php
-use CadotInfo\Tools;
+use CadotInfo\testTools;
 
 class ClientTest extends PantherTestCase
 {
-   use Tools;
+   use testTools;
    ...
-   $liens = $this->returnAllLinks('/', 1, null, ['mailto',  'javascript'], [''], ['bigpicture']);
-        foreach ($liens as $url => $texte) {
-            dump("Test url:$url(texte)");
+   $liens = $this->returnAllLinks('/');
    ...
    $this->E('test of links');
+   ...
+   $this->getall($client, '/compte', 1)
 
 ```
 
