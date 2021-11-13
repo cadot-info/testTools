@@ -1,4 +1,25 @@
-# Get All Links of web page or html string
+# library for simplify tests in Symfony
+
+## Installation
+
+`require cadot-info/testTools`
+
+```php
+use CadotInfo\Tools;
+
+class ClientTest extends PantherTestCase
+{
+   use Tools;
+   ...
+   $liens = $this->returnAllLinks('/', 1, null, ['mailto',  'javascript'], [''], ['bigpicture']);
+        foreach ($liens as $url => $texte) {
+            dump("Test url:$url(texte)");
+   ...
+   $this->E('test of links');
+
+```
+
+## Get All Links of web page or html string
 
 Return a array of url links of page and sub-page:
 

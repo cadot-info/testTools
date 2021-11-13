@@ -1,0 +1,17 @@
+version: '3'
+services:
+  cadot-info-testTools:
+    image: cadotinfo/symfony5
+    container_name: cadot-info-testTools
+    volumes:
+      - .:/app
+    networks:
+      - web
+    restart: always
+    ports:
+      - 80
+
+
+networks:
+  web:
+    external: true
