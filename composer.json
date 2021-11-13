@@ -1,17 +1,20 @@
 {
-  "name": "cadot.info/getlinks",
-  "description": "Function for get a array links of website",
+  "name": "cadot.info/testtools",
+  "description": "library for simplify tests in symfony",
   "type": "library",
   "require": {
     "php": ">=7.0"
   },
-  "homepage": "https://github.com/cadot-info/getLinks#readme",
+  "homepage": "https://github.com/cadot-info/testTools#readme",
   "keywords": [
     "test",
     "links",
-    "getLinks",
+    "testTools",
     "testing",
-    "cadot.info"
+    "cadot.info",
+    "testing",
+    "symfony",
+    "echo"
   ],
   "license": "MIT",
   "autoload": {
