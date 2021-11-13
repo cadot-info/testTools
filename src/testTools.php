@@ -45,15 +45,16 @@ trait testTools
      * getall function for call getLinks with a client, ideal after login
      *
      * @param  mixed $client
-     * @param  mixed $url
-     * @param  mixed $level
+     * @param  string $url
+     * @param  int $level
+     * @param  array $opts option for getLinks
      * @param  mixed $liens for recurivity
      * @return void
      */
-    function getall($client, $url, $level = 0, $liens = [])
+    function getall($client, string $url, int $level = 0, $opts = [], $liens = [])
     {
         $client->request('GET', $url);
-        $news = $this->getLinks($client->getCrawler()->html(), 0, ['link' => ['/logout', '/compte'], 'start' => ['http://', 'https://', 'www',  '/favori/get', '/likeallanduserid', '/compte/mon-profil'], 'class' => ['bigpicture']]);
+        $news = $this->getLinks($client->getCrawler()->html(), 0, $opts);
         if ($level > 0) {
             foreach ($news as $nurl => $ntexte) {
                 $nnews = $this->getall($client, $nurl, $level - 1);

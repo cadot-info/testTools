@@ -17,7 +17,7 @@ class ClientTest extends PantherTestCase
    ...
    $this->E('test of links');
    ...
-   $this->getall($client, '/compte', 1)
+   $this->getall($client, '/compte', 1,$opts)
 
 ```
 
