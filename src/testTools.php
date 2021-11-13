@@ -49,9 +49,8 @@ trait testTools
      * @param  int $level
      * @param  array $opts option for getLinks
      * @param  mixed $liens for recurivity
-     * @return void
      */
-    function getall($client, string $url, int $level = 0, $opts = [], $liens = []): mixed
+    function getall($client, string $url, int $level = 0, $opts = [], $liens = [])
     {
         $client->request('GET', $url);
         $news = $this->getLinks($client->getCrawler()->html(), 0, $opts);
