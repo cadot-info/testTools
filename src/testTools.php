@@ -49,7 +49,8 @@ trait testTools
      * - point => refuse the links before . ,for example https://github.
      * - class => refuse the links with this classes, example: bigpicture button ...
      * - link => refuse this links for example https:github.com, www.google.com ...
-     * - begin => refuse link start for example /profiler, http://google
+     * - begin => refuse link start for example /profiler, /profiler/123
+     * - finish => refuse link finish for example /deleted, http://google.fr/deleted
      * - pass => if true, if a link is refused, the code seek in this link for recursivity
      *
      * @param  mixed $client
@@ -83,7 +84,8 @@ trait testTools
      * - point => refuse the links before . ,for example https://github.
      * - class => refuse the links with this classes, example: bigpicture button ...
      * - link => refuse this links for example https:github.com, www.google.com ...
-     * - begin => refuse link start for example /profiler, http://google
+     * - begin => refuse link start for example /profiler, /profiler/123
+     * - finish => refuse link finish for example /deleted, http://google.fr/deleted
      * - pass => if true, if a link is refused, the code seek in this link for recursivity
      *
      * @param  string start url
@@ -103,6 +105,7 @@ trait testTools
             'class' => [],
             'link' => [],
             'begin' => [],
+            'finish' => [],
             'pass' => false
         ];
         // verify optioons exis
@@ -143,6 +146,13 @@ trait testTools
                 if ($refuse == false) {
                     foreach ($opts['begin'] as $begin) {
                         if (substr($url, 0, strlen($begin)) == $begin) { //not start
+                            $refuse = true;
+                        }
+                    }
+                }
+                if ($refuse == false) {
+                    foreach ($opts['finish'] as $finish) {
+                        if (substr($url, -strlen($finish)) == $finish) { //not finish
                             $refuse = true;
                         }
                     }
