@@ -70,6 +70,6 @@ class Test  extends TestCase
     }
     public function testfinish(): void
     {
-        $this->assertCount(0, $this->getLinks('<!DOCTYPE html><html><a href="https://github.com/cadot-info/testTools" class="test">github</a></html>', 0, ['finish' => ['testTools']]));
+        $this->assertCount(0, $this->getLinks('<!DOCTYPE html><html><a href="https://github.com/cadot-info/testTools" class="test">github</a></html>', 0, ['finish' => ['/testTools']]));
     }
 }
