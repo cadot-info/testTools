@@ -141,7 +141,7 @@ trait testTools
                     $refuse = true;
                 }
                 if ($refuse == false) {
-                    foreach ($opts['start'] as $begin) {
+                    foreach ($opts['begin'] as $begin) {
                         if (substr($url, 0, strlen($begin)) == $begin) { //not start
                             $refuse = true;
                         }

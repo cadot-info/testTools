@@ -64,8 +64,8 @@ class Test  extends TestCase
     {
         $this->assertCount(2, $this->getLinks('<!DOCTYPE html><html><a href="https://github.com" >github</a><a href="toto">toto</a></html>', 0, [], ['https://github.com' => 'github']));
     }
-    public function teststart(): void
+    public function testbegin(): void
     {
-        $this->assertCount(0, $this->getLinks('<!DOCTYPE html><html><a href="https://github.com/cadot-info/testTools" class="test">github</a></html>', 0, ['start' => ['https://github']]));
+        $this->assertCount(0, $this->getLinks('<!DOCTYPE html><html><a href="https://github.com/cadot-info/testTools" class="test">github</a></html>', 0, ['begin' => ['https://github']]));
     }
 }

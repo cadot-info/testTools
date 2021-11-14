@@ -10,8 +10,7 @@ services:
     restart: always
     ports:
       - 80
-
-
+ 
 networks:
   web:
     external: true
