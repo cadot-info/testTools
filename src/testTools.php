@@ -43,6 +43,14 @@ trait testTools
 
     /**
      * getLinksByClient function for call getLinks with a client, ideal after login
+     * 
+     * * Options accepted
+     * - 2points => refuse the links before : ,for example with mailto,javascript,..
+     * - point => refuse the links before . ,for example https://github.
+     * - class => refuse the links with this classes, example: bigpicture button ...
+     * - link => refuse this links for example https:github.com, www.google.com ...
+     * - start => refuse link start for example /profiler, http://google
+     * - pass => if true, if a link is refused, the code seek in this link for recursivity
      *
      * @param  mixed $client
      * @param  string $url
